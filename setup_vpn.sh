@@ -33,8 +33,6 @@ cat <<EOL > $WG_CONFIG
 Address = $SERVER_IP
 ListenPort = $PORT
 PrivateKey = $PRIVATE_KEY
-PostUp = systemctl restart dhcpd
-PostDown = systemctl stop dhcpd
 
 [Peer]
 # Clients will be dynamically assigned via DHCP
