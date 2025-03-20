@@ -30,12 +30,15 @@ PUBLIC_KEY=$(cat $WG_DIR/publickey)
 echo "[+] Creating WireGuard configuration..."
 cat <<EOL > $WG_CONFIG
 [Interface]
-Address = $SERVER_IP
 ListenPort = $PORT
 PrivateKey = $PRIVATE_KEY
 
 [Peer]
 # Clients will be dynamically assigned via DHCP
+PublicKey = OliQanmPXY7N+Pq69qYK3YjSMy1a8XscjuRS6pCMSkE=
+Endpoint = 10.0.0.1:51820
+AllowedIPs = 0.0.0.0/0  # Allows all traffic through the VPN
+PersistentKeepalive = 25
 EOL
 
 # Set permissions
